@@ -1309,7 +1309,9 @@ Se puede actualizar:
         <span class="nt">&lt;password&gt;</span>FOOBAR<span class="nt">&lt;/password&gt;</span>
     <span class="nt">&lt;/credentials&gt;</span>   
     <span class="nt">&lt;hotelCode&gt;</span>1234<span class="nt">&lt;/hotelCode&gt;</span>
-    <span class="nt">&lt;rateCode&gt;</span>BASE<span class="nt">&lt;/rateCode&gt;</span>    
+    <span class="nt">&lt;rateCode&gt;</span>BASE<span class="nt">&lt;/rateCode&gt;</span>
+   <span class="nt">&lt;dateFrom&gt;</span>01/01/2017<span class="nt">&lt;/dateFrom&gt;</span>
+   <span class="nt">&lt;dateTo&gt;</span>31/01/2017<span class="nt">&lt;/dateTo&gt;</span>    
 <span class="nt">&lt;/RoomRatesRetrievalRequest&gt;</span>
 </code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"RoomRatesRetrievalRequest"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -1614,6 +1616,18 @@ Opcionalmente se puede filtrar por una tarifa concreta: rateCode</p>
 <td><em>String</em></td>
 <td>No</td>
 <td>Código de tarifa</td>
+</tr>
+<tr>
+<td>dateFrom</td>
+<td><em>Date</em></td>
+<td>No</td>
+<td>Fecha desde (dd/MM/yyyy, rangos cerrados)</td>
+</tr>
+<tr>
+<td>dateTo</td>
+<td><em>Date</em></td>
+<td>No</td>
+<td>Fecha hasta (dd/MM/yyyy, rangos cerrados)</td>
 </tr>
 </tbody></table>
 
