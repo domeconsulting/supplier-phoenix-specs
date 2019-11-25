@@ -66,4 +66,10 @@ ReferredBySystem | *String* | Indica el sistema desde el cual ha llegado la rese
 Affiliate | *String* | 
 Medium | *String* |
 Source | *String* |
+PriceType | *String* | Indica el tipo de precio enviado en la reserva (*Net*: Precio Neto / *PVP* : Precio Comisionable).
+ClientType | *String* | Indica el tipo<sup>1</sup> de cliente que ha realizado la reserva.
+StatusPaymentBooking | *String* | Indica si la reserva ha sido pagada o no. Valores: *Charged* / *Pending*
 
+<aside class="notice">
+<sup>1</sup>&nbsp;&nbsp;&nbsp;Los tipos de cliente actuales son: M (Mayorista) / A (Alojamiento) / C (Channel Manager) / O (Operador) / G (Agencia de viajes)
+</aside>
