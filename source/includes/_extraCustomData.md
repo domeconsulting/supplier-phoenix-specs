@@ -63,6 +63,7 @@ IpAdress | *String* | Indica la ip desde la cual se ha realizado la reserva.
 Country | *String* | Indica el pais desde el cual se ha realizado la reserva. (ISO 3166)
 ReferredByUrl | *String* | Indica la Url desde la cual ha llegado la reserva.
 ReferredBySystem | *String* | Indica el sistema desde el cual ha llegado la reserva. (GHF -Google Hotel Finder-, TVG -Trivago-).
+ParentSystem | *String* | Indica el sistema padre desde el cual ha llegado la reserva. (XML -Xml-, STK -Canal externo-, WEB -Web y Web móvil- y CCH -Call Center-).
 Affiliate | *String* | 
 Medium | *String* |
 Source | *String* |

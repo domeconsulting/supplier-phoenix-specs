@@ -115,10 +115,12 @@ La reserva recuperada contiene dos habitaciones: 1 doble + 1 individual
             </roomRateDay>
             <guest id="1">
                 <type>Adult</type>
+		<name>Juan Ballester</name>
                 <amount>175.00</amount>
             </guest>
             <guest id="2">
                 <type>Adult</type>
+		<name>Elena Ballester</name>
                 <amount>175.00</amount>
             </guest>
         </bookingRoom>
@@ -146,10 +148,12 @@ La reserva recuperada contiene dos habitaciones: 1 doble + 1 individual
             </roomRateDay>
             <guest id="3">
                 <type>Adult</type>
+		<name>Elena Ballester</name>
                 <amount>100.00</amount>
             </guest>
             <guest id="4">
                 <type>Child</type>
+		<name>Elena Ballester</name>
                 <amount>50.00</amount>
             </guest>
         </bookingRoom>
@@ -176,7 +180,8 @@ La reserva recuperada contiene dos habitaciones: 1 doble + 1 individual
         <bookingPayment>
             <modality>Establishment</modality>
             <type>PrepaidCard</type>
-			<description>Tarjeta de prepago</description>
+	    <otaType>PC</otaType>
+	    <description>Tarjeta de prepago</description>
             <status>Pending</status>
         </bookingPayment>
         <paymentCardDetail>
@@ -192,15 +197,16 @@ La reserva recuperada contiene dos habitaciones: 1 doble + 1 individual
 			<date>24/01/2019 17:18</date>
 			<amount>2635.663</amount>
 			<externalManagedDetail>
-				<externalSystemCode>TARJETA VIRTUAL</externalSystemCode>
-				<externalReference>5227</externalReference>
-				<status>Ok</status>
+			<externalSystemCode>TARJETA VIRTUAL</externalSystemCode>
+			<externalReference>5227</externalReference>
+			<status>Ok</status>
 			</externalManagedDetail>
 		</paymentDetail>
 		<paymentDetail>
 			<action>Charge</action>
 			<paymentStatus>Pending</paymentStatus>
 			<type>PrepaidCard</type>
+			<otaType>PC</otaType>
 			<date>23/07/2019 09:42</date>
 			<amount>2635.66</amount>
 			<prepaidCardDetail>
@@ -269,11 +275,13 @@ La reserva recuperada contiene dos habitaciones: 1 doble + 1 individual
           "guest": [
             {
               "id": "1",
+	      "name": "Juan Ballester",
               "type": "Adult",
               "amount": "175.00"
             },
             {
               "id": "2",
+	      "name": "Elena Ballester",
               "type": "Adult",
               "amount": "175.00"
             }
@@ -307,11 +315,13 @@ La reserva recuperada contiene dos habitaciones: 1 doble + 1 individual
           "guest": [
             {
               "id": "3",
+	      "name": "Elena Ballester",
               "type": "Adult",
               "amount": "100.00"
             },
             {
               "id": "4",
+	      "name": "Elena Ballester",
               "type": "Child",
               "amount": "50.00"
             }
@@ -345,7 +355,8 @@ La reserva recuperada contiene dos habitaciones: 1 doble + 1 individual
       "bookingPayment": {
         "modality": "Establishment",
         "type": "WarrantyCard",
-		"description": "Tarjeta de garantía",
+	"otaType": "PC",
+	"description": "Tarjeta de garantía",
         "status": "Pending"
       },
       "paymentCardDetail": {
@@ -394,6 +405,8 @@ booking[] | **Booking** | No | Información de una reserva de hotel
 ↳ reference| *String* | Sí | Localizador de la reserva
 ↳ creationDate| *DateTime* | Sí | Fecha de creación de la reserva (dd/MM/yyy HH:mm)
 ↳ modificationDate| *DateTime* | No | Fecha de creación de la reserva (dd/MM/yyyy HH:mm). Sólo viene informado cuando es una modificación de reserva
+↳ cancellationDate| *DateTime* | No | Fecha de cancelación de la reserva (dd/MM/yyyy HH:mm). Sólo viene informado cuando es una cancelación de reserva
+↳ country| *String* | No | Código del país de origen de la reserva (2 letter ISO 3166). Sólo vendrá informado en la reservas propias de Hotetec
 ↳ checkIn| *Date* | Sí | Fecha de entrada (dd/MM/yyy)
 ↳ checkOut| *Date* | Sí | Fecha de salida (dd/MM/yyy)
 ↳ status| *Enum* | Sí | Estado de la reserva (Confirmed, Cancelled, OnRequest)
@@ -423,6 +436,7 @@ booking[] | **Booking** | No | Información de una reserva de hotel
 ↳↳↳ amount| *String* | Sí | Importe del día
 ↳↳ guest[]| **Guest** | Sí | Pasajero de la reserva
 ↳↳↳ @id| *Integer* | Sí | Identificador del pasajero
+↳↳↳ name| *String* | Sí | Nombre del pasajero. Si el nombre no ha sido informado en la reserva, se substituirá por el nombre de la persona de contacto
 ↳↳↳ type| *Enum* | Sí | Tipo (Adult, Child, Baby)
 ↳↳↳ amount| *Double* | Sí | Importe correspondiente al pasajero
 ↳↳↳ birthDate| *Date* | No | Fecha de nacimiento
@@ -439,6 +453,7 @@ booking[] | **Booking** | No | Información de una reserva de hotel
 ↳ bookingPayment| **BookingPayment** | No | Información del último pago de la reserva<sup>1</sup>
 ↳↳ modality| *Enum* | Sí | Modalidad de pago (Establishment / Inmediate / Deferred / CancelPenalty / Instalment / ExternManagement)
 ↳↳ type| *Enum* | Sí | Tipo de pago (BankTransfer / Card / VirtualCard / PrepaidCard / WarrantyCard / Cash / Cheque / Credit / Voucher / ExternalManaged / PinPad)
+↳↳ otaType| *Enum* | No | Tipo de pago OTA (PA: Agency prepaid/PC: Customer prepaid/PD: Customer payment/PB: Voucher Payment/FC: Credit invoice/PM: Loyalty points + money PU: Loyalty Points/SC: By contract/SD: OTA Virtual card/NN: TPV pending/AW: Prepaid TPV with AMEX/VW: Prepaid TPV NO AMEX)
 ↳↳ status| *Enum* | Sí | Estado de pago (Pending / Ok / Error / Cancelled / Inapplicable)
 ↳↳ description| *String* | No | Contiene el nombre comercial asignado a a la modalidad de pago
 ↳ paymentCardDetail| **PaymentCardDetail** | No | Detalles de la tarjeta que ha realizado el último pago (sólo viene informado si bookingPayment.type es Card, PrepaidCard, VirtualCard o WarrantyCard)
@@ -450,6 +465,7 @@ booking[] | **Booking** | No | Información de una reserva de hotel
 ↳↳ action| *String* | Sí | Tipo de operación (charge / refund)
 ↳↳ paymentStatus| *String* | Sí | Estado del pago (Pending / Ok / Error / Cancelled / Inapplicable)
 ↳↳ type| *String* | Sí | Código del tipo de pago (Establishment / Inmediate / Deferred / CancelPenalty / Instalment / ExternManagement)
+↳↳ otaType| *Enum* | No | Tipo de pago OTA (PA: Agency prepaid/PC: Customer prepaid/PD: Customer payment/PB: Voucher Payment/FC: Credit invoice/PM: Loyalty points + money PU: Loyalty Points/SC: By contract/SD: OTA Virtual card/NN: TPV pending/AW: Prepaid TPV with AMEX/VW: Prepaid TPV NO AMEX)
 ↳↳ date| *Calendar* | Sí | Fecha de la transacción
 ↳↳ amount| *Double* | Sí | Importe (#.##)
 ↳↳↳ cardDetail| *PaymentDetailCardDetail* | No | Detalle pago con tarjeta de crédito
