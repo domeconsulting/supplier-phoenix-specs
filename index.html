@@ -302,6 +302,12 @@ gestionando el hotel a través de la extranet web. Ambos modos de mantenimiento 
 <td>1.1.3</td>
 <td>Se añaden los nombres de los pasajeros de la reserva.</td>
 </tr>
+<tr>
+<td>06/05/2020</td>
+<td>Rafel Mestre</td>
+<td>1.1.4</td>
+<td>Nuevo mensaje de actualización de inventario (InventoryUpdate)</td>
+</tr>
 </tbody></table>
 
           <h1 id="protocolo-de-conexi-n">Protocolo de conexión</h1>
@@ -1798,6 +1804,241 @@ Opcionalmente se puede filtrar por una tarifa concreta: rateCode</p>
 <td><em>Enum</em></td>
 <td>Sí</td>
 <td>Estado de la ocupación</td>
+</tr>
+<tr>
+<td>notification</td>
+<td><strong>Notification</strong></td>
+<td>No</td>
+<td>Información de notificación (Error o Warning)</td>
+</tr>
+<tr>
+<td>↳ type</td>
+<td><em>Enum</em></td>
+<td>Sí</td>
+<td>Tipo de notificación (E:Error, W: Warning)</td>
+</tr>
+<tr>
+<td>↳ code</td>
+<td><em>String</em></td>
+<td>Sí</td>
+<td>Código de la notificación</td>
+</tr>
+<tr>
+<td>↳ text</td>
+<td><em>String</em></td>
+<td>Sí</td>
+<td>Texto descriptivo de la notificación</td>
+</tr>
+</tbody></table>
+
+          <h1 id="updateinventory">UpdateInventory</h1>
+
+<blockquote>
+<p>Ejemplo UpdateInventoryRequest donde se actualiza inventario para un dia concreto y dos tipos de habitación
+&nbsp;&nbsp;<span class="postman-button"><a href="https://app.getpostman.com/run-collection/495ff7995b655b745365"><img src="https://run.pstmn.io/button.svg" alt="Run in Postman" /></a></span></p>
+</blockquote>
+<pre class="highlight xml tab-xml"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;UpdateInventoryRequest&gt;</span>
+    <span class="nt">&lt;credentials&gt;</span>
+        <span class="nt">&lt;systemCode&gt;</span>SFO<span class="nt">&lt;/systemCode&gt;</span>
+        <span class="nt">&lt;vendorCode&gt;</span>FOO<span class="nt">&lt;/vendorCode&gt;</span>
+        <span class="nt">&lt;user&gt;</span>BAR<span class="nt">&lt;/user&gt;</span>
+        <span class="nt">&lt;password&gt;</span>FOOBAR<span class="nt">&lt;/password&gt;</span>
+    <span class="nt">&lt;/credentials&gt;</span>
+    <span class="nt">&lt;hotelCode&gt;</span>1234<span class="nt">&lt;/hotelCode&gt;</span>
+    <span class="nt">&lt;inventoryCode&gt;</span>4321<span class="nt">&lt;/inventoryCode&gt;</span>
+    <span class="nt">&lt;room&gt;</span>
+        <span class="nt">&lt;code&gt;</span>DBL#STD<span class="nt">&lt;/code&gt;</span>
+        <span class="nt">&lt;day</span> <span class="na">date=</span><span class="s">"20/05/2020"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;availableQuota&gt;</span>100<span class="nt">&lt;/availableQuota&gt;</span>
+            <span class="nt">&lt;status&gt;</span>Open<span class="nt">&lt;/status&gt;</span>
+        <span class="nt">&lt;/day&gt;</span>
+    <span class="nt">&lt;/room&gt;</span>
+    <span class="nt">&lt;room&gt;</span>
+        <span class="nt">&lt;code&gt;</span>SGL#GAL<span class="nt">&lt;/code&gt;</span>
+        <span class="nt">&lt;day</span> <span class="na">date=</span><span class="s">"20/05/2020"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;availableQuota&gt;</span>100<span class="nt">&lt;/availableQuota&gt;</span>
+            <span class="nt">&lt;status&gt;</span>Open<span class="nt">&lt;/status&gt;</span>
+        <span class="nt">&lt;/day&gt;</span>
+    <span class="nt">&lt;/room&gt;</span>
+<span class="nt">&lt;/UpdateInventoryRequest&gt;</span>
+</code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"UpdateInventoryRequest"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"credentials"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="s2">"systemCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SFO"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"vendorCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FOO"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BAR"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FOOBAR"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"hotelCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"inventoryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4321"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"room"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+         </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DBL#STD"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"day"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+               </span><span class="s2">"availableQuota"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Open"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20/05/2020"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+         </span><span class="p">},</span><span class="w">
+         </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SGL#GAL"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"day"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+               </span><span class="s2">"availableQuota"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Open"</span><span class="p">,</span><span class="w">
+               </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20/05/2020"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">]</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Ejemplo RoomRatesUpdateRequest donde además de inventario, enviamos un cierre de inventario para una habitación
+&nbsp;&nbsp;<span class="postman-button"><a href="https://app.getpostman.com/run-collection/495ff7995b655b745365"><img src="https://run.pstmn.io/button.svg" alt="Run in Postman" /></a></span></p>
+</blockquote>
+<pre class="highlight xml tab-xml"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;UpdateInventoryRequest&gt;</span>
+    <span class="nt">&lt;credentials&gt;</span>
+        <span class="nt">&lt;systemCode&gt;</span>SFO<span class="nt">&lt;/systemCode&gt;</span>
+        <span class="nt">&lt;vendorCode&gt;</span>FOO<span class="nt">&lt;/vendorCode&gt;</span>
+        <span class="nt">&lt;user&gt;</span>BAR<span class="nt">&lt;/user&gt;</span>
+        <span class="nt">&lt;password&gt;</span>FOOBAR<span class="nt">&lt;/password&gt;</span>
+    <span class="nt">&lt;/credentials&gt;</span>
+    <span class="nt">&lt;hotelCode&gt;</span>1234<span class="nt">&lt;/hotelCode&gt;</span>
+    <span class="nt">&lt;inventoryCode&gt;</span>4321<span class="nt">&lt;/inventoryCode&gt;</span>
+    <span class="nt">&lt;room&gt;</span>
+        <span class="nt">&lt;code&gt;</span>DBL#STD<span class="nt">&lt;/code&gt;</span>
+        <span class="nt">&lt;day</span> <span class="na">date=</span><span class="s">"20/05/2020"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;availableQuota&gt;</span>100<span class="nt">&lt;/availableQuota&gt;</span>
+            <span class="nt">&lt;status&gt;</span>Closed<span class="nt">&lt;/status&gt;</span>
+        <span class="nt">&lt;/day&gt;</span>
+    <span class="nt">&lt;/room&gt;</span>
+<span class="nt">&lt;/UpdateInventoryRequest&gt;</span>
+</code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"UpdateInventoryRequest"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"credentials"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="s2">"systemCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SFO"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"vendorCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FOO"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BAR"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FOOBAR"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"hotelCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"inventoryCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4321"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"room"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+         </span><span class="s2">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DBL#STD"</span><span class="p">,</span><span class="w">
+         </span><span class="s2">"day"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"availableQuota"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Closed"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"20/05/2020"</span><span class="w">
+         </span><span class="p">}</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Ejemplo respuesta UpdateInventoryResponse procesada correctamente</p>
+</blockquote>
+<pre class="highlight xml tab-xml"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;UpdateInventoryResponse&gt;</span>
+    <span class="nt">&lt;sessionId&gt;</span>SUP#FOO#123456789<span class="nt">&lt;/sessionId&gt;</span>
+<span class="nt">&lt;/UpdateInventoryResponse&gt;</span>
+</code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"UpdateInventoryResponse"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"sessionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUP#FOO#123456789"</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Mensaje utilizado para la actualización de inventario de un hotel.
+Se puede actualizar: 
+- Inventario
+- Paros sobre inventario.<br/></p>
+
+<h3 id="updateinventoryrequest">UpdateInventoryRequest</h3>
+
+<p>Mensaje petición de actualización de inventario de hotel.</p>
+
+<table><thead>
+<tr>
+<th>Elemento</th>
+<th>Tipo</th>
+<th>Obl?</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>credentials</td>
+<td><strong>Credentials</strong></td>
+<td>Sí</td>
+<td>Credenciales de autenticación del usuario (Ver Autenticación)</td>
+</tr>
+<tr>
+<td>hotelCode</td>
+<td><em>Integer</em></td>
+<td>Sí</td>
+<td>Código de hotel</td>
+</tr>
+<tr>
+<td>inventoryCode</td>
+<td><em>Integer</em></td>
+<td>Sí</td>
+<td>Código de hotel</td>
+</tr>
+<tr>
+<td>room[]</td>
+<td><strong>Room</strong></td>
+<td>Sí</td>
+<td>Información asociada a la modalidad de hotel</td>
+</tr>
+<tr>
+<td>↳ code</td>
+<td><em>String</em></td>
+<td>Sí</td>
+<td>Código de habitación y características</td>
+</tr>
+<tr>
+<td>↳ day[]</td>
+<td><strong>Day</strong></td>
+<td>Sí</td>
+<td>Información asociada a un dia</td>
+</tr>
+<tr>
+<td>↳↳ date</td>
+<td><em>Date</em></td>
+<td>Sí</td>
+<td>Fecha (dd/MM/yyyy)</td>
+</tr>
+<tr>
+<td>↳↳ availableQuota</td>
+<td><em>Integer</em></td>
+<td>Sí</td>
+<td>Unidades de cupo disponible</td>
+</tr>
+<tr>
+<td>↳↳ status</td>
+<td><em>Enum</em></td>
+<td>Sí</td>
+<td>Estado del inventario (Open, OnRequest, Closed)</td>
+</tr>
+</tbody></table>
+
+<h3 id="updateinventoryresponse">UpdateInventoryResponse</h3>
+
+<p>Mensaje respuesta que indica si la actualización se ha procesado correctamente</p>
+
+<table><thead>
+<tr>
+<th>Elemento</th>
+<th>Tipo</th>
+<th>Obl?</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>sessionId</td>
+<td><em>String</em></td>
+<td>Sí</td>
+<td>Identificador de la sesión que ha procesado la transacción</td>
 </tr>
 <tr>
 <td>notification</td>
