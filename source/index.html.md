@@ -18,6 +18,7 @@ includes:
   - hotel-configuration
   - roomRates-update
   - roomRates-retrieval
+  - updateInventory
   - booking-retrieval
   - extraCustomData
   - booking-notification
