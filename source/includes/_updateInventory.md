@@ -1,8 +1,8 @@
 # UpdateInventory
-​
+
 > Ejemplo UpdateInventoryRequest donde se actualiza inventario para un dia concreto y dos tipos de habitación
 &nbsp;&nbsp;<span class="postman-button">[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/495ff7995b655b745365)</span>
-​
+
 ````xml
 <?xml version="1.0" encoding="UTF-8"?>
 <UpdateInventoryRequest>
@@ -30,7 +30,7 @@
     </room>
 </UpdateInventoryRequest>
 ````
-​
+
 ````json
 {
    "UpdateInventoryRequest": {
@@ -63,10 +63,10 @@
    }
 }
 ````
-​
+
 > Ejemplo RoomRatesUpdateRequest donde además de inventario, enviamos un cierre de inventario para una habitación
 &nbsp;&nbsp;<span class="postman-button">[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/495ff7995b655b745365)</span>
-​
+
 ````xml
 <?xml version="1.0" encoding="UTF-8"?>
 <UpdateInventoryRequest>
@@ -87,7 +87,7 @@
     </room>
 </UpdateInventoryRequest>
 ````
-​
+
 ````json
 {
    "UpdateInventoryRequest": {
@@ -110,17 +110,17 @@
    }
 }
 ````
-​
+
 ````
 > Ejemplo respuesta UpdateInventoryResponse procesada correctamente
-​
+
 ````xml
 <?xml version="1.0" encoding="UTF-8"?>
 <UpdateInventoryResponse>
     <sessionId>SUP#FOO#123456789</sessionId>
 </UpdateInventoryResponse>
 ````
-​
+
 ````json
 {
    "UpdateInventoryResponse": {
@@ -128,14 +128,14 @@
    }
 }
 ````
-​
+
 Mensaje utilizado para la actualización de inventario de un hotel.
 Se puede actualizar: 
 - Inventario
 - Paros sobre inventario.<br/>
-​
+
 ### UpdateInventoryRequest
-​
+
 Mensaje petición de actualización de inventario de hotel.
  
 Elemento | Tipo | Obl? |  Descripción
@@ -149,11 +149,11 @@ room[] | **Room** | Sí | Información asociada a la modalidad de hotel
 ↳↳ date| *Date* | Sí | Fecha (dd/MM/yyyy)
 ↳↳ availableQuota| *Integer* | Sí | Unidades de cupo disponible
 ↳↳ status| *Enum* | Sí | Estado del inventario (Open, OnRequest, Closed)
-​
+
 ### UpdateInventoryResponse
-​
+
 Mensaje respuesta que indica si la actualización se ha procesado correctamente
-​
+
 Elemento | Tipo | Obl? | Descripción
 --------- | ----------- | ----------- | -----------
 sessionId | *String* | Sí| Identificador de la sesión que ha procesado la transacción
@@ -161,3 +161,4 @@ notification | **Notification** | No | Información de notificación (Error o Wa
 ↳ type | *Enum* | Sí | Tipo de notificación (E:Error, W: Warning)
 ↳ code | *String* | Sí | Código de la notificación
 ↳ text | *String* | Sí | Texto descriptivo de la notificación
+
