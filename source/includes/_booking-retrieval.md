@@ -440,6 +440,14 @@ booking[] | **Booking** | No | Información de una reserva de hotel
 ↳↳↳ type| *Enum* | Sí | Tipo (Adult, Child, Baby)
 ↳↳↳ amount| *Double* | Sí | Importe correspondiente al pasajero
 ↳↳↳ birthDate| *Date* | No | Fecha de nacimiento
+↳↳↳ nationality[]| *String* | No | Nacionalidad del huésped
+↳↳↳ document[]| *Document* | No | Información relativa a los documentos aportados por el huésped
+↳↳↳↳ typeDocument| *String* | No | Tipo del documento aportado ('D': Dni, 'E': Nie y 'P':Pasaporte)
+↳↳↳↳ numberDocument| *String* | No | Número del documento aportado
+↳↳↳ contact[]| *ContactAddress* | No | Información relativa a los datos de contacto aportados por el huésped
+↳↳↳↳ phone| *String* | No | Teléfono aportado por el huésped
+↳↳↳↳ email| *String* | No | Email aportado por el huésped
+↳↳↳↳ addressText| *String* | No | Dirección aportada por el huésped
 ↳ bookingSupplement[]| **BookingSupplement** | No | Información de suplemento reservado
 ↳↳ code| *String* | Sí | Código del suplemento opcional reservado
 ↳↳ name| *String* | Sí | Nombre del suplemento opcional reservado
