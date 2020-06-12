@@ -308,6 +308,12 @@ gestionando el hotel a través de la extranet web. Ambos modos de mantenimiento 
 <td>1.1.4</td>
 <td>Nuevo mensaje de actualización de inventario (InventoryUpdate)</td>
 </tr>
+<tr>
+<td>10/06/2020</td>
+<td>Rafel Mestre</td>
+<td>1.1.5</td>
+<td>Se añade información adicional en los pasajeros, necesaria para efectuar el check-in</td>
+</tr>
 </tbody></table>
 
           <h1 id="protocolo-de-conexi-n">Protocolo de conexión</h1>
@@ -2738,6 +2744,54 @@ o bien las reservas de un hotel creadas, canceladas o modificadas dentro de un r
 <td><em>Date</em></td>
 <td>No</td>
 <td>Fecha de nacimiento</td>
+</tr>
+<tr>
+<td>↳↳↳ nationality[]</td>
+<td><em>String</em></td>
+<td>No</td>
+<td>Nacionalidad del huésped</td>
+</tr>
+<tr>
+<td>↳↳↳ document[]</td>
+<td><em>Document</em></td>
+<td>No</td>
+<td>Información relativa a los documentos aportados por el huésped</td>
+</tr>
+<tr>
+<td>↳↳↳↳ typeDocument</td>
+<td><em>String</em></td>
+<td>No</td>
+<td>Tipo del documento aportado (&lsquo;D&rsquo;: Dni, &lsquo;E&rsquo;: Nie y &lsquo;P&rsquo;:Pasaporte)</td>
+</tr>
+<tr>
+<td>↳↳↳↳ numberDocument</td>
+<td><em>String</em></td>
+<td>No</td>
+<td>Número del documento aportado</td>
+</tr>
+<tr>
+<td>↳↳↳ contact[]</td>
+<td><em>ContactAddress</em></td>
+<td>No</td>
+<td>Información relativa a los datos de contacto aportados por el huésped</td>
+</tr>
+<tr>
+<td>↳↳↳↳ phone</td>
+<td><em>String</em></td>
+<td>No</td>
+<td>Teléfono aportado por el huésped</td>
+</tr>
+<tr>
+<td>↳↳↳↳ email</td>
+<td><em>String</em></td>
+<td>No</td>
+<td>Email aportado por el huésped</td>
+</tr>
+<tr>
+<td>↳↳↳↳ addressText</td>
+<td><em>String</em></td>
+<td>No</td>
+<td>Dirección aportada por el huésped</td>
 </tr>
 <tr>
 <td>↳ bookingSupplement[]</td>
