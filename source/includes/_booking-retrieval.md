@@ -451,6 +451,7 @@ booking[] | **Booking** | No | Información de una reserva de hotel
 ↳ bookingSupplement[]| **BookingSupplement** | No | Información de suplemento reservado
 ↳↳ code| *String* | Sí | Código del suplemento opcional reservado
 ↳↳ name| *String* | Sí | Nombre del suplemento opcional reservado
+↳↳ internalName| *String* | No | Nombre interno de la política comercial (suplementos del tipo SP) aplicada en la reserva.
 ↳↳ description| *String* | No | Descripción detallada del suplemento opcional reservado
 ↳↳ checkIn| *Date* | No | Fecha de inicio del suplemento (dd/MM/yyy)
 ↳↳ checkOut| *Date* | No | Fecha de fin del suplemento (dd/MM/yyy)

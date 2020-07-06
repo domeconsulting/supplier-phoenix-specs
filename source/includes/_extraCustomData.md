@@ -70,6 +70,7 @@ Source | *String* |
 PriceType | *String* | Indica el tipo de precio enviado en la reserva (*Net*: Precio Neto / *PVP* : Precio Comisionable).
 ClientType | *String* | Indica el tipo<sup>1</sup> de cliente que ha realizado la reserva.
 StatusPaymentBooking | *String* | Indica si la reserva ha sido pagada o no. Valores: *Charged* / *Pending*
+NoShow | *String* | Indica que la habitación con el id indicado ha sido marcada como 'No show'.
 
 <aside class="notice">
 <sup>1</sup>&nbsp;&nbsp;&nbsp;Los tipos de cliente actuales son: M (Mayorista) / A (Alojamiento) / C (Channel Manager) / O (Operador) / G (Agencia de viajes)
