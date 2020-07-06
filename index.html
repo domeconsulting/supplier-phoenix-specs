@@ -314,6 +314,12 @@ gestionando el hotel a través de la extranet web. Ambos modos de mantenimiento 
 <td>1.1.5</td>
 <td>Se añade información adicional en los pasajeros, necesaria para efectuar el check-in</td>
 </tr>
+<tr>
+<td>06/07/2020</td>
+<td>Rafel Mestre</td>
+<td>1.1.6</td>
+<td>Se añade el nombre interno de las políticas comerciales aplicadas a una reserva. Se añade también la marca de &lsquo;NoShow&rsquo; a nivel de habitación, en las reservas.</td>
+</tr>
 </tbody></table>
 
           <h1 id="protocolo-de-conexi-n">Protocolo de conexión</h1>
@@ -2812,6 +2818,12 @@ o bien las reservas de un hotel creadas, canceladas o modificadas dentro de un r
 <td>Nombre del suplemento opcional reservado</td>
 </tr>
 <tr>
+<td>↳↳ internalName</td>
+<td><em>String</em></td>
+<td>No</td>
+<td>Nombre interno de la política comercial (suplementos del tipo SP) aplicada en la reserva.</td>
+</tr>
+<tr>
 <td>↳↳ description</td>
 <td><em>String</em></td>
 <td>No</td>
@@ -3560,6 +3572,11 @@ o bien las reservas de un hotel creadas, canceladas o modificadas dentro de un r
 <td>StatusPaymentBooking</td>
 <td><em>String</em></td>
 <td>Indica si la reserva ha sido pagada o no. Valores: <em>Charged</em> / <em>Pending</em></td>
+</tr>
+<tr>
+<td>NoShow</td>
+<td><em>String</em></td>
+<td>Indica que la habitación con el id indicado ha sido marcada como &lsquo;No show&rsquo;.</td>
 </tr>
 </tbody></table>
 
