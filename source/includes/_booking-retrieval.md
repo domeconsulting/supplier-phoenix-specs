@@ -444,10 +444,13 @@ booking[] | **Booking** | No | Información de una reserva de hotel
 ↳↳↳ document[]| *Document* | No | Información relativa a los documentos aportados por el huésped
 ↳↳↳↳ typeDocument| *String* | No | Tipo del documento aportado ('D': Dni, 'E': Nie y 'P':Pasaporte)
 ↳↳↳↳ numberDocument| *String* | No | Número del documento aportado
+↳↳↳↳ expeditionDate| *Date* | No | Fecha de expedición del documento (dd/MM/yyyy)
+↳↳↳↳ expiryDocument| *Date* | No | Fecha de caducidad del documento (dd/MM/yyyy)
 ↳↳↳ contact[]| *ContactAddress* | No | Información relativa a los datos de contacto aportados por el huésped
 ↳↳↳↳ phone| *String* | No | Teléfono aportado por el huésped
 ↳↳↳↳ email| *String* | No | Email aportado por el huésped
 ↳↳↳↳ addressText| *String* | No | Dirección aportada por el huésped
+↳↳↳↳ postalCode| *String* | No | Código postal
 ↳ bookingSupplement[]| **BookingSupplement** | No | Información de suplemento reservado
 ↳↳ code| *String* | Sí | Código del suplemento opcional reservado
 ↳↳ name| *String* | Sí | Nombre del suplemento opcional reservado
