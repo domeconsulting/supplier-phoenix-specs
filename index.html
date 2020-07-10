@@ -320,6 +320,12 @@ gestionando el hotel a través de la extranet web. Ambos modos de mantenimiento 
 <td>1.1.6</td>
 <td>Se añade el nombre interno de las políticas comerciales aplicadas a una reserva. Se añade también la marca de &lsquo;NoShow&rsquo; a nivel de habitación, en las reservas.</td>
 </tr>
+<tr>
+<td>10/07/2020</td>
+<td>Rafel Mestre</td>
+<td>1.1.7</td>
+<td>Se añaden más campos (fecha de expedición del documento, fecha de caducidad del documento y el código postal) en la información de los pasajeros.</td>
+</tr>
 </tbody></table>
 
           <h1 id="protocolo-de-conexi-n">Protocolo de conexión</h1>
@@ -2776,6 +2782,18 @@ o bien las reservas de un hotel creadas, canceladas o modificadas dentro de un r
 <td>Número del documento aportado</td>
 </tr>
 <tr>
+<td>↳↳↳↳ expeditionDate</td>
+<td><em>Date</em></td>
+<td>No</td>
+<td>Fecha de expedición del documento (dd/MM/yyyy)</td>
+</tr>
+<tr>
+<td>↳↳↳↳ expiryDocument</td>
+<td><em>Date</em></td>
+<td>No</td>
+<td>Fecha de caducidad del documento (dd/MM/yyyy)</td>
+</tr>
+<tr>
 <td>↳↳↳ contact[]</td>
 <td><em>ContactAddress</em></td>
 <td>No</td>
@@ -2798,6 +2816,12 @@ o bien las reservas de un hotel creadas, canceladas o modificadas dentro de un r
 <td><em>String</em></td>
 <td>No</td>
 <td>Dirección aportada por el huésped</td>
+</tr>
+<tr>
+<td>↳↳↳↳ postalCode</td>
+<td><em>String</em></td>
+<td>No</td>
+<td>Código postal</td>
 </tr>
 <tr>
 <td>↳ bookingSupplement[]</td>
