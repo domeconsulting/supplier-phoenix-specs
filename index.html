@@ -332,6 +332,12 @@ gestionando el hotel a través de la extranet web. Ambos modos de mantenimiento 
 <td>1.1.8</td>
 <td>Se añade el importe original de la reserva en el nodo ExtraCustomData (OriginalAmount)</td>
 </tr>
+<tr>
+<td>29/07/2020</td>
+<td>Rafel Mestre</td>
+<td>1.1.9</td>
+<td>Se añade el tipo de suplemento y los códigos promocionales aplicados</td>
+</tr>
 </tbody></table>
 
           <h1 id="protocolo-de-conexi-n">Protocolo de conexión</h1>
@@ -2090,7 +2096,7 @@ Se puede actualizar:
 </tr>
 </tbody></table>
 
-          <h1 id="bookingretrieval">BookingRetrieval</h1>
+          <p>s# BookingRetrieval</p>
 
 <blockquote>
 <p>Ejemplo BookingRetrievalRequest para recuperar una reserva en particular
@@ -2848,6 +2854,12 @@ o bien las reservas de un hotel creadas, canceladas o modificadas dentro de un r
 <td>Nombre del suplemento opcional reservado</td>
 </tr>
 <tr>
+<td>↳↳ typeSupplement</td>
+<td><em>String</em></td>
+<td>Sí</td>
+<td>Indica el tipo de suplemento que tratamos (Mandatory / Optional / SalePolicy)</td>
+</tr>
+<tr>
 <td>↳↳ internalName</td>
 <td><em>String</em></td>
 <td>No</td>
@@ -2888,6 +2900,12 @@ o bien las reservas de un hotel creadas, canceladas o modificadas dentro de un r
 <td><em>Double</em></td>
 <td>Sí</td>
 <td>Importe total del suplemento opcional reservado</td>
+</tr>
+<tr>
+<td>↳↳ promotionalCode[]</td>
+<td><em>String</em></td>
+<td>No</td>
+<td>Indica los códigos aplicados en el suplemento en cuestión</td>
 </tr>
 <tr>
 <td>↳↳ mandatory</td>
