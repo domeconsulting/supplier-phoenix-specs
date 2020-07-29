@@ -15,3 +15,4 @@ Fecha | Autor | Versión | Cambios realizados
 06/07/2020 | Rafel Mestre | 1.1.6 | Se añade el nombre interno de las políticas comerciales aplicadas a una reserva. Se añade también la marca de 'NoShow' a nivel de habitación, en las reservas.
 10/07/2020 | Rafel Mestre | 1.1.7 | Se añaden más campos (fecha de expedición del documento, fecha de caducidad del documento y el código postal) en la información de los pasajeros.
 17/07/2020 | Rafel Mestre | 1.1.8 | Se añade el importe original de la reserva en el nodo ExtraCustomData (OriginalAmount)
+29/07/2020 | Rafel Mestre | 1.1.9 | Se añade el tipo de suplemento y los códigos promocionales aplicados
