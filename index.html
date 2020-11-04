@@ -338,6 +338,18 @@ gestionando el hotel a través de la extranet web. Ambos modos de mantenimiento 
 <td>1.1.9</td>
 <td>Se añade el tipo de suplemento y los códigos promocionales aplicados</td>
 </tr>
+<tr>
+<td>03/11/2020</td>
+<td>Rafel Mestre</td>
+<td>1.1.10</td>
+<td>Se añaden el campo &lsquo;gender&rsquo; para el check-in online. Se añade el código ISO3166 en la nacionalidad.</td>
+</tr>
+<tr>
+<td>04/11/2020</td>
+<td>Rafel Mestre</td>
+<td>1.1.11</td>
+<td>Se añade la comisión a nivel de reserva. También se añade el tipo de suplemento interno en la reserva.</td>
+</tr>
 </tbody></table>
 
           <h1 id="protocolo-de-conexi-n">Protocolo de conexión</h1>
@@ -2180,6 +2192,18 @@ La reserva recuperada contiene dos habitaciones: 1 doble + 1 individual</p>
             <span class="nt">&lt;mail&gt;</span>elena_ballester1234@mail.com<span class="nt">&lt;/mail&gt;</span>
             <span class="nt">&lt;phone&gt;</span>003466667788<span class="nt">&lt;/phone&gt;</span>
         <span class="nt">&lt;/endCustomer&gt;</span>
+    <span class="nt">&lt;commission&gt;</span>
+            <span class="nt">&lt;serviceCommission&gt;</span>
+                <span class="nt">&lt;serviceId&gt;</span>1<span class="nt">&lt;/serviceId&gt;</span>
+                <span class="nt">&lt;commissionAmount&gt;</span>0<span class="nt">&lt;/commissionAmount&gt;</span>
+                <span class="nt">&lt;commissionPercentage&gt;</span>0<span class="nt">&lt;/commissionPercentage&gt;</span>
+            <span class="nt">&lt;/serviceCommission&gt;</span>
+            <span class="nt">&lt;serviceCommission&gt;</span>
+                <span class="nt">&lt;serviceId&gt;</span>2<span class="nt">&lt;/serviceId&gt;</span>
+                <span class="nt">&lt;commissionAmount&gt;</span>0<span class="nt">&lt;/commissionAmount&gt;</span>
+                <span class="nt">&lt;commissionPercentage&gt;</span>0<span class="nt">&lt;/commissionPercentage&gt;</span>
+            <span class="nt">&lt;/serviceCommission&gt;</span>
+        <span class="nt">&lt;/commission&gt;</span>
         <span class="nt">&lt;hotelCode&gt;</span>1234<span class="nt">&lt;/hotelCode&gt;</span>
         <span class="nt">&lt;bookingRoom</span> <span class="na">id=</span><span class="s">"1"</span><span class="nt">&gt;</span>
             <span class="nt">&lt;checkIn&gt;</span>15/04/2017<span class="nt">&lt;/checkIn&gt;</span>
@@ -2239,11 +2263,13 @@ La reserva recuperada contiene dos habitaciones: 1 doble + 1 individual</p>
             <span class="nt">&lt;guest</span> <span class="na">id=</span><span class="s">"3"</span><span class="nt">&gt;</span>
                 <span class="nt">&lt;type&gt;</span>Adult<span class="nt">&lt;/type&gt;</span>
         <span class="nt">&lt;name&gt;</span>Elena Ballester<span class="nt">&lt;/name&gt;</span>
+        <span class="nt">&lt;gender&gt;</span>Female<span class="nt">&lt;/gender&gt;</span>
                 <span class="nt">&lt;amount&gt;</span>100.00<span class="nt">&lt;/amount&gt;</span>
             <span class="nt">&lt;/guest&gt;</span>
             <span class="nt">&lt;guest</span> <span class="na">id=</span><span class="s">"4"</span><span class="nt">&gt;</span>
                 <span class="nt">&lt;type&gt;</span>Child<span class="nt">&lt;/type&gt;</span>
         <span class="nt">&lt;name&gt;</span>Elena Ballester<span class="nt">&lt;/name&gt;</span>
+        <span class="nt">&lt;gender&gt;</span>Female<span class="nt">&lt;/gender&gt;</span>
                 <span class="nt">&lt;amount&gt;</span>50.00<span class="nt">&lt;/amount&gt;</span>
             <span class="nt">&lt;/guest&gt;</span>
         <span class="nt">&lt;/bookingRoom&gt;</span>
@@ -2404,11 +2430,13 @@ La reserva recuperada contiene dos habitaciones: 1 doble + 1 individual</p>
               </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
           </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Elena Ballester"</span><span class="p">,</span><span class="w">
               </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Adult"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Female"</span><span class="p">,</span><span class="w">
               </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"100.00"</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="p">{</span><span class="w">
               </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4"</span><span class="p">,</span><span class="w">
           </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Elena Ballester"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"gender"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Female"</span><span class="p">,</span><span class="w">
               </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Child"</span><span class="p">,</span><span class="w">
               </span><span class="s2">"amount"</span><span class="p">:</span><span class="w"> </span><span class="s2">"50.00"</span><span class="w">
             </span><span class="p">}</span><span class="w">
@@ -2656,6 +2684,36 @@ o bien las reservas de un hotel creadas, canceladas o modificadas dentro de un r
 <td>Nacionadlidad (2 letter ISO 3166)</td>
 </tr>
 <tr>
+<td>↳ commision</td>
+<td><strong>Commission</strong></td>
+<td>No</td>
+<td>Información sobre las comisiones aplicadas en la reserva</td>
+</tr>
+<tr>
+<td>↳↳ serviceCommission[]</td>
+<td><em>ServiceCommission</em></td>
+<td>No</td>
+<td>Información específica sobre un servicio reservado</td>
+</tr>
+<tr>
+<td>↳↳↳ serviceId</td>
+<td><em>Integer</em></td>
+<td>Sí</td>
+<td>Identificador que identifica la habitación reservada</td>
+</tr>
+<tr>
+<td>↳↳↳ commissionAmount</td>
+<td><em>Double</em></td>
+<td>No</td>
+<td>Importe de la comisión aplicada</td>
+</tr>
+<tr>
+<td>↳↳↳ commissionPercentage</td>
+<td><em>Double</em></td>
+<td>No</td>
+<td>Porcentage de la comisión aplicada</td>
+</tr>
+<tr>
 <td>↳ hotelCode</td>
 <td><em>Integer</em></td>
 <td>Sí</td>
@@ -2752,6 +2810,12 @@ o bien las reservas de un hotel creadas, canceladas o modificadas dentro de un r
 <td>Nombre del pasajero. Si el nombre no ha sido informado en la reserva, se substituirá por el nombre de la persona de contacto</td>
 </tr>
 <tr>
+<td>↳↳↳ gender</td>
+<td><em>String</em></td>
+<td>No</td>
+<td>Género del pasajero (&lsquo;Male&rsquo;: Hombre, &lsquo;Female&rsquo;: Mujer y &lsquo;Undefined&rsquo;: Indefinido).</td>
+</tr>
+<tr>
 <td>↳↳↳ type</td>
 <td><em>Enum</em></td>
 <td>Sí</td>
@@ -2773,7 +2837,7 @@ o bien las reservas de un hotel creadas, canceladas o modificadas dentro de un r
 <td>↳↳↳ nationality[]</td>
 <td><em>String</em></td>
 <td>No</td>
-<td>Nacionalidad del huésped</td>
+<td>Nacionalidad del huésped. Se incorpora el código ISO-3166. Ejemplo: <nationality>España (ES)</nationality>.</td>
 </tr>
 <tr>
 <td>↳↳↳ document[]</td>
