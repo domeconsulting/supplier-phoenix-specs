@@ -90,6 +90,18 @@ La reserva recuperada contiene dos habitaciones: 1 doble + 1 individual
             <mail>elena_ballester1234@mail.com</mail>
             <phone>003466667788</phone>
         </endCustomer>
+	<commission>
+    	    <serviceCommission>
+                <serviceId>1</serviceId>
+                <commissionAmount>0</commissionAmount>
+                <commissionPercentage>0</commissionPercentage>
+            </serviceCommission>
+            <serviceCommission>
+                <serviceId>2</serviceId>
+                <commissionAmount>0</commissionAmount>
+                <commissionPercentage>0</commissionPercentage>
+            </serviceCommission>
+        </commission>
         <hotelCode>1234</hotelCode>
         <bookingRoom id="1">
             <checkIn>15/04/2017</checkIn>
@@ -149,11 +161,13 @@ La reserva recuperada contiene dos habitaciones: 1 doble + 1 individual
             <guest id="3">
                 <type>Adult</type>
 		<name>Elena Ballester</name>
+		<gender>Female</gender>
                 <amount>100.00</amount>
             </guest>
             <guest id="4">
                 <type>Child</type>
 		<name>Elena Ballester</name>
+		<gender>Female</gender>
                 <amount>50.00</amount>
             </guest>
         </bookingRoom>
@@ -317,11 +331,13 @@ La reserva recuperada contiene dos habitaciones: 1 doble + 1 individual
               "id": "3",
 	      "name": "Elena Ballester",
               "type": "Adult",
+	      "gender": "Female",
               "amount": "100.00"
             },
             {
               "id": "4",
 	      "name": "Elena Ballester",
+	      "gender": "Female",
               "type": "Child",
               "amount": "50.00"
             }
@@ -421,6 +437,11 @@ booking[] | **Booking** | No | Información de una reserva de hotel
 ↳↳ mail| *String* | No | Email del cliente final
 ↳↳ phone| *String* | No | Teléfono de contacto del cliente final
 ↳↳ nationality| *String* | No | Nacionadlidad (2 letter ISO 3166)
+↳ commision| **Commission** | No | Información sobre las comisiones aplicadas en la reserva
+↳↳ serviceCommission[]| *ServiceCommission* | No | Información específica sobre un servicio reservado
+↳↳↳ serviceId| *Integer* | Sí | Identificador que identifica la habitación reservada
+↳↳↳ commissionAmount| *Double* | No| Importe de la comisión aplicada
+↳↳↳ commissionPercentage| *Double* | No | Porcentage de la comisión aplicada
 ↳ hotelCode| *Integer* | Sí | Código de hotel
 ↳ currencyCode| *String* | Sí | Código de divisa (Códigos ISO 4217)
 ↳ bookingRoom[]| **BookingRoom** | Sí | Información de habitación de hotel reservada
@@ -437,10 +458,11 @@ booking[] | **Booking** | No | Información de una reserva de hotel
 ↳↳ guest[]| **Guest** | Sí | Pasajero de la reserva
 ↳↳↳ @id| *Integer* | Sí | Identificador del pasajero
 ↳↳↳ name| *String* | Sí | Nombre del pasajero. Si el nombre no ha sido informado en la reserva, se substituirá por el nombre de la persona de contacto
+↳↳↳ gender| *String* | No | Género del pasajero ('Male': Hombre, 'Female': Mujer y 'Undefined': Indefinido). 
 ↳↳↳ type| *Enum* | Sí | Tipo (Adult, Child, Baby)
 ↳↳↳ amount| *Double* | Sí | Importe correspondiente al pasajero
 ↳↳↳ birthDate| *Date* | No | Fecha de nacimiento
-↳↳↳ nationality[]| *String* | No | Nacionalidad del huésped
+↳↳↳ nationality[]| *String* | No | Nacionalidad del huésped. Se incorpora el código ISO-3166. Ejemplo: <nationality>España (ES)</nationality>.
 ↳↳↳ document[]| *Document* | No | Información relativa a los documentos aportados por el huésped
 ↳↳↳↳ typeDocument| *String* | No | Tipo del documento aportado ('D': Dni, 'E': Nie y 'P':Pasaporte)
 ↳↳↳↳ numberDocument| *String* | No | Número del documento aportado

@@ -16,3 +16,5 @@ Fecha | Autor | Versión | Cambios realizados
 10/07/2020 | Rafel Mestre | 1.1.7 | Se añaden más campos (fecha de expedición del documento, fecha de caducidad del documento y el código postal) en la información de los pasajeros.
 17/07/2020 | Rafel Mestre | 1.1.8 | Se añade el importe original de la reserva en el nodo ExtraCustomData (OriginalAmount)
 29/07/2020 | Rafel Mestre | 1.1.9 | Se añade el tipo de suplemento y los códigos promocionales aplicados
+03/11/2020 | Rafel Mestre | 1.1.10 | Se añaden el campo 'gender' para el check-in online. Se añade el código ISO3166 en la nacionalidad.
+04/11/2020 | Rafel Mestre | 1.1.11 | Se añade la comisión a nivel de reserva. También se añade el tipo de suplemento interno en la reserva.
