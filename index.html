@@ -350,6 +350,12 @@ gestionando el hotel a través de la extranet web. Ambos modos de mantenimiento 
 <td>1.1.11</td>
 <td>Se añade la comisión a nivel de reserva. También se añade el tipo de suplemento interno en la reserva.</td>
 </tr>
+<tr>
+<td>03/02/2021</td>
+<td>Rafel Mestre</td>
+<td>1.1.12</td>
+<td>Se añaden los gastos de cancelación en la reserva.</td>
+</tr>
 </tbody></table>
 
           <h1 id="protocolo-de-conexi-n">Protocolo de conexión</h1>
@@ -2898,6 +2904,48 @@ o bien las reservas de un hotel creadas, canceladas o modificadas dentro de un r
 <td><em>String</em></td>
 <td>No</td>
 <td>Código postal</td>
+</tr>
+<tr>
+<td>↳↳ cancellationData</td>
+<td><strong>CancellationData</strong></td>
+<td>No</td>
+<td>Gastos de cancelación de la habitación</td>
+</tr>
+<tr>
+<td>↳↳↳ cancelPenaltyPolicy[]</td>
+<td><em>CancelPenaltyPolicy</em></td>
+<td>Sí</td>
+<td>Gasto de cancelación aplicable a partir de una fecha de cancelación</td>
+</tr>
+<tr>
+<td>↳↳↳↳ @id</td>
+<td><em>Integer</em></td>
+<td>Sí</td>
+<td>Identificador del gasto de cancelación</td>
+</tr>
+<tr>
+<td>↳↳↳↳ date</td>
+<td><em>Calendar</em></td>
+<td>Sí</td>
+<td>Elemento que contiene la fecha a partir de la cual se aplican los gastos de cancelación</td>
+</tr>
+<tr>
+<td>↳↳↳↳ timeRelevant</td>
+<td><em>Boolean</em></td>
+<td>Sí</td>
+<td>Elemento que indica si las horas en la fecha de cancelación son relevantes o se debe tomar sólo la fecha como dato significativo</td>
+</tr>
+<tr>
+<td>↳↳↳↳ amount</td>
+<td><em>Double</em></td>
+<td>Sí</td>
+<td>Importe que se aplicará al cancelar la habitación</td>
+</tr>
+<tr>
+<td>↳↳↳↳ description</td>
+<td><em>String</em></td>
+<td>No</td>
+<td>Descripción de los gastos de cancelación</td>
 </tr>
 <tr>
 <td>↳ bookingSupplement[]</td>
