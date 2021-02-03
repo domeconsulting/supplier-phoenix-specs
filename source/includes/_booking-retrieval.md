@@ -473,6 +473,13 @@ booking[] | **Booking** | No | Información de una reserva de hotel
 ↳↳↳↳ email| *String* | No | Email aportado por el huésped
 ↳↳↳↳ addressText| *String* | No | Dirección aportada por el huésped
 ↳↳↳↳ postalCode| *String* | No | Código postal
+↳↳ cancellationData| **CancellationData** | No| Gastos de cancelación de la habitación
+↳↳↳ cancelPenaltyPolicy[]| *CancelPenaltyPolicy* | Sí | Gasto de cancelación aplicable a partir de una fecha de cancelación
+↳↳↳↳ @id| *Integer* | Sí | Identificador del gasto de cancelación
+↳↳↳↳ date| *Calendar* | Sí | Elemento que contiene la fecha a partir de la cual se aplican los gastos de cancelación
+↳↳↳↳ timeRelevant| *Boolean* | Sí | Elemento que indica si las horas en la fecha de cancelación son relevantes o se debe tomar sólo la fecha como dato significativo
+↳↳↳↳ amount| *Double* | Sí | Importe que se aplicará al cancelar la habitación
+↳↳↳↳ description| *String* | No | Descripción de los gastos de cancelación
 ↳ bookingSupplement[]| **BookingSupplement** | No | Información de suplemento reservado
 ↳↳ code| *String* | Sí | Código del suplemento opcional reservado
 ↳↳ name| *String* | Sí | Nombre del suplemento opcional reservado
