@@ -19,3 +19,4 @@ Fecha | Autor | Versión | Cambios realizados
 03/11/2020 | Rafel Mestre | 1.1.10 | Se añaden el campo 'gender' para el check-in online. Se añade el código ISO3166 en la nacionalidad.
 04/11/2020 | Rafel Mestre | 1.1.11 | Se añade la comisión a nivel de reserva. También se añade el tipo de suplemento interno en la reserva.
 03/02/2021 | Rafel Mestre | 1.1.12 | Se añaden los gastos de cancelación en la reserva.
+10/03/2021 | Rafel Mestre | 1.1.13 | Se añade la información de los vuelos en los suplementos de transfer.

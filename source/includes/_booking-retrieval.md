@@ -493,6 +493,23 @@ booking[] | **Booking** | No | Información de una reserva de hotel
 ↳↳ amount| *Double* | Sí | Importe total del suplemento opcional reservado
 ↳↳ promotionalCode[]| *String* | No | Indica los códigos aplicados en el suplemento en cuestión
 ↳↳ mandatory| *Boolean* | Sí | Indica si el suplemento es obligatorio (true) o opcional (false)
+↳↳ detail| **SupplementDetail** | No | Indica los detalles del suplemento.
+↳↳↳ shuttleDetail| **SupplementShuttleDetail** | No | Indica los detalles de transporte (siempre y cuando el suplemento sea de tipo TRF)
+↳↳↳↳ mailTransferProvider| *String* | No | Indica el email del proveedor del transfer
+↳↳↳↳ arrivalFlight| **ShuttleFlightDetail** | No | Indica los detalles del vuelo de llegada
+↳↳↳↳↳ airportCode| *String* | No | Indica el código del aeropuerto
+↳↳↳↳↳ airportName| *String* | No | Indica el nombre del aeropuerto
+↳↳↳↳↳ companyCode| *String* | No | Indica el código de la compañía que emite el billete
+↳↳↳↳↳ companyName| *String* | No | Indica el nombre de la compañía que emite el billete
+↳↳↳↳↳ flightNumber| *String* | No | Indica el número de vuelo
+↳↳↳↳↳ flightTime| *Calendar* | No | Indica la fecha y hora del vuelo (dd/MM/yyyy HH:mm)
+↳↳↳↳ departureFlight| **ShuttleFlightDetail** | No | Indica los detalles del vuelo de salida
+↳↳↳↳↳ airportCode| *String* | No | Indica el código del aeropuerto
+↳↳↳↳↳ airportName| *String* | No | Indica el nombre del aeropuerto
+↳↳↳↳↳ companyCode| *String* | No | Indica el código de la compañía que emite el billete
+↳↳↳↳↳ companyName| *String* | No | Indica el nombre de la compañía que emite el billete
+↳↳↳↳↳ flightNumber| *String* | No | Indica el número de vuelo
+↳↳↳↳↳ flightTime| *Calendar* | No | Indica la fecha y hora del vuelo (dd/MM/yyyy HH:mm)
 ↳ bookingPayment| **BookingPayment** | No | Información del último pago de la reserva<sup>1</sup>
 ↳↳ modality| *Enum* | Sí | Modalidad de pago (Establishment / Inmediate / Deferred / CancelPenalty / Instalment / ExternManagement)
 ↳↳ type| *Enum* | Sí | Tipo de pago (BankTransfer / Card / VirtualCard / PrepaidCard / WarrantyCard / Cash / Cheque / Credit / Voucher / ExternalManaged / PinPad)
