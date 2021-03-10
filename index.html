@@ -356,6 +356,12 @@ gestionando el hotel a través de la extranet web. Ambos modos de mantenimiento 
 <td>1.1.12</td>
 <td>Se añaden los gastos de cancelación en la reserva.</td>
 </tr>
+<tr>
+<td>10/03/2021</td>
+<td>Rafel Mestre</td>
+<td>1.1.13</td>
+<td>Se añade la información de los vuelos en los suplementos de transfer.</td>
+</tr>
 </tbody></table>
 
           <h1 id="protocolo-de-conexi-n">Protocolo de conexión</h1>
@@ -3024,6 +3030,108 @@ o bien las reservas de un hotel creadas, canceladas o modificadas dentro de un r
 <td><em>Boolean</em></td>
 <td>Sí</td>
 <td>Indica si el suplemento es obligatorio (true) o opcional (false)</td>
+</tr>
+<tr>
+<td>↳↳ detail</td>
+<td><strong>SupplementDetail</strong></td>
+<td>No</td>
+<td>Indica los detalles del suplemento.</td>
+</tr>
+<tr>
+<td>↳↳↳ shuttleDetail</td>
+<td><strong>SupplementShuttleDetail</strong></td>
+<td>No</td>
+<td>Indica los detalles de transporte (siempre y cuando el suplemento sea de tipo TRF)</td>
+</tr>
+<tr>
+<td>↳↳↳↳ mailTransferProvider</td>
+<td><em>String</em></td>
+<td>No</td>
+<td>Indica el email del proveedor del transfer</td>
+</tr>
+<tr>
+<td>↳↳↳↳ arrivalFlight</td>
+<td><strong>ShuttleFlightDetail</strong></td>
+<td>No</td>
+<td>Indica los detalles del vuelo de llegada</td>
+</tr>
+<tr>
+<td>↳↳↳↳↳ airportCode</td>
+<td><em>String</em></td>
+<td>No</td>
+<td>Indica el código del aeropuerto</td>
+</tr>
+<tr>
+<td>↳↳↳↳↳ airportName</td>
+<td><em>String</em></td>
+<td>No</td>
+<td>Indica el nombre del aeropuerto</td>
+</tr>
+<tr>
+<td>↳↳↳↳↳ companyCode</td>
+<td><em>String</em></td>
+<td>No</td>
+<td>Indica el código de la compañía que emite el billete</td>
+</tr>
+<tr>
+<td>↳↳↳↳↳ companyName</td>
+<td><em>String</em></td>
+<td>No</td>
+<td>Indica el nombre de la compañía que emite el billete</td>
+</tr>
+<tr>
+<td>↳↳↳↳↳ flightNumber</td>
+<td><em>String</em></td>
+<td>No</td>
+<td>Indica el número de vuelo</td>
+</tr>
+<tr>
+<td>↳↳↳↳↳ flightTime</td>
+<td><em>Calendar</em></td>
+<td>No</td>
+<td>Indica la fecha y hora del vuelo (dd/MM/yyyy HH:mm)</td>
+</tr>
+<tr>
+<td>↳↳↳↳ departureFlight</td>
+<td><strong>ShuttleFlightDetail</strong></td>
+<td>No</td>
+<td>Indica los detalles del vuelo de salida</td>
+</tr>
+<tr>
+<td>↳↳↳↳↳ airportCode</td>
+<td><em>String</em></td>
+<td>No</td>
+<td>Indica el código del aeropuerto</td>
+</tr>
+<tr>
+<td>↳↳↳↳↳ airportName</td>
+<td><em>String</em></td>
+<td>No</td>
+<td>Indica el nombre del aeropuerto</td>
+</tr>
+<tr>
+<td>↳↳↳↳↳ companyCode</td>
+<td><em>String</em></td>
+<td>No</td>
+<td>Indica el código de la compañía que emite el billete</td>
+</tr>
+<tr>
+<td>↳↳↳↳↳ companyName</td>
+<td><em>String</em></td>
+<td>No</td>
+<td>Indica el nombre de la compañía que emite el billete</td>
+</tr>
+<tr>
+<td>↳↳↳↳↳ flightNumber</td>
+<td><em>String</em></td>
+<td>No</td>
+<td>Indica el número de vuelo</td>
+</tr>
+<tr>
+<td>↳↳↳↳↳ flightTime</td>
+<td><em>Calendar</em></td>
+<td>No</td>
+<td>Indica la fecha y hora del vuelo (dd/MM/yyyy HH:mm)</td>
 </tr>
 <tr>
 <td>↳ bookingPayment</td>
