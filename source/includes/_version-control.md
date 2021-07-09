@@ -21,3 +21,4 @@ Fecha | Autor | Versión | Cambios realizados
 03/02/2021 | Rafel Mestre | 1.1.12 | Se añaden los gastos de cancelación en la reserva.
 10/03/2021 | Rafel Mestre | 1.1.13 | Se añade la información de los vuelos en los suplementos de transfer.
 12/03/2021 | Rafel Mestre | 1.1.14 | Se añade el nuevo valor 'CostDate' en el ExtraCustomData.
+09/07/2021 | Rafel Mestre | 1.1.15 | Se añade el nuevo mensaje de confirmación de reservas (BookingConfirmMessage)
