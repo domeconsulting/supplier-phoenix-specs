@@ -368,6 +368,12 @@ gestionando el hotel a través de la extranet web. Ambos modos de mantenimiento 
 <td>1.1.14</td>
 <td>Se añade el nuevo valor &lsquo;CostDate&rsquo; en el ExtraCustomData.</td>
 </tr>
+<tr>
+<td>09/07/2021</td>
+<td>Rafel Mestre</td>
+<td>1.1.15</td>
+<td>Se añade el nuevo mensaje de confirmación de reservas (BookingConfirmMessage)</td>
+</tr>
 </tbody></table>
 
           <h1 id="protocolo-de-conexi-n">Protocolo de conexión</h1>
@@ -3938,6 +3944,164 @@ De esta forma, se evitan posibles problemas de overbooking al tener la informaci
 <li>Notificación creación nueva reserva EPL10032017140800-SALE: <strong>http://www.anyurl.com/hotelCode?1234&amp;reference?EPL10032017140800-SALE&amp;action?Creation</strong></li>
 <li>Notificación cancelación reserva EPL10032017140800-SALE: <strong>http://www.anyurl.com/hotelCode?1234&amp;reference?EPL10032017140800-SALE&amp;action?Cancellation</strong></li>
 </ul>
+
+          <h1 id="bookingconfirm">BookingConfirm</h1>
+
+<blockquote>
+<p>Ejemplo BookingConfirmRequest para confirmar una reserva en particular</p>
+</blockquote>
+<pre class="highlight xml tab-xml"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;BookingConfirmRequest&gt;</span>
+    <span class="nt">&lt;credentials&gt;</span>
+        <span class="nt">&lt;systemCode&gt;</span>SFO<span class="nt">&lt;/systemCode&gt;</span>
+        <span class="nt">&lt;vendorCode&gt;</span>FOO<span class="nt">&lt;/vendorCode&gt;</span>
+        <span class="nt">&lt;user&gt;</span>BAR<span class="nt">&lt;/user&gt;</span>
+        <span class="nt">&lt;password&gt;</span>FOOBAR<span class="nt">&lt;/password&gt;</span>
+    <span class="nt">&lt;/credentials&gt;</span>  
+    <span class="nt">&lt;hotelCode&gt;</span>1234<span class="nt">&lt;/hotelCode&gt;</span>
+    <span class="nt">&lt;reference&gt;</span>EPL10032017140800-SALE<span class="nt">&lt;/reference&gt;</span>
+    <span class="nt">&lt;confirmReference&gt;</span>REFERENCIACONFIRMACION<span class="nt">&lt;/confirmReference&gt;</span>
+<span class="nt">&lt;/BookingConfirmRequest&gt;</span>
+</code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"BookingConfirmRequest"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"credentials"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"systemCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SFO"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"vendorCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FOO"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BAR"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FOOBAR"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="s2">"hotelCode"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1234"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"EPL10032017140800-SALE"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"confirmReference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"REFERENCIACONFIRMACION"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Ejemplo respuesta BookingConfirmResponse procesada correctamente</p>
+</blockquote>
+<pre class="highlight xml tab-xml"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;BookingConfirmResponse&gt;</span>
+    <span class="nt">&lt;sessionId&gt;</span>SUP#FOO#123456789<span class="nt">&lt;/sessionId&gt;</span>
+    <span class="nt">&lt;status&gt;</span>success<span class="nt">&lt;/status&gt;</span>
+<span class="nt">&lt;/BookingConfirmResponse&gt;</span>
+</code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"BookingConfirmResponse"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"sessionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUP#FOO#123456789"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Ejemplo respuesta BookingConfirmResponse procesada incorrectamente</p>
+</blockquote>
+<pre class="highlight xml tab-xml"><code><span class="cp">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="nt">&lt;BookingConfirmResponse&gt;</span>
+    <span class="nt">&lt;sessionId&gt;</span>SUP#FOO#123456789<span class="nt">&lt;/sessionId&gt;</span>
+    <span class="nt">&lt;notification</span> <span class="na">code=</span><span class="s">"DSUP-7"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;type&gt;</span>E<span class="nt">&lt;/type&gt;</span>
+        <span class="nt">&lt;text&gt;</span>La funcionalidad ConfirmBooking-Inbound no está activada. Por favor, consulte su Account Manager<span class="nt">&lt;/text&gt;</span>
+    <span class="nt">&lt;/notification&gt;</span>
+<span class="nt">&lt;/BookingConfirmResponse&gt;</span>
+</code></pre><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"BookingConfirmResponse"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"sessionId"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SUP#FOO#123456789"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"notification"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"-code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DSUP-7"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"E"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"La funcionalidad ConfirmBooking-Inbound no está activada. Por favor, consulte su Account Manager"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>Mensaje utilizado para confirmación de reservas.</p>
+
+<h3 id="bookingconfirmrequest">BookingConfirmRequest</h3>
+
+<p>Mensaje petición de recuperación de reservas</p>
+
+<table><thead>
+<tr>
+<th>Elemento</th>
+<th>Tipo</th>
+<th>Obl?</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>credentials</td>
+<td><strong>Credentials</strong></td>
+<td>Sí</td>
+<td>Credenciales de autenticación del usuario (Ver Autenticación)</td>
+</tr>
+<tr>
+<td>reference</td>
+<td><em>String</em></td>
+<td>Sí</td>
+<td>Localizador de la reserva de Hotetec</td>
+</tr>
+<tr>
+<td>hotelCode</td>
+<td><em>Integer</em></td>
+<td>Sí</td>
+<td>Código de hotel</td>
+</tr>
+<tr>
+<td>confirmReference</td>
+<td><em>String</em></td>
+<td>No</td>
+<td>Referencia de confirmación de reserva.</td>
+</tr>
+</tbody></table>
+
+<h3 id="bookingconfirmresponse">BookingConfirmResponse</h3>
+
+<p>Mensaje respuesta de confirmación de reservas</p>
+
+<table><thead>
+<tr>
+<th>Elemento</th>
+<th>Tipo</th>
+<th>Obl?</th>
+<th>Descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>sessionId</td>
+<td><em>String</em></td>
+<td>Sí</td>
+<td>Identificador de la sesión que ha procesado la transacción</td>
+</tr>
+<tr>
+<td>status</td>
+<td><em>String</em></td>
+<td>No</td>
+<td>Indica si la confirmación se ha realizado correctamente o no (&lsquo;success&rsquo;=sí, &lsquo;Error&rsquo;=no)</td>
+</tr>
+<tr>
+<td>notification</td>
+<td><strong>Notification</strong></td>
+<td>No</td>
+<td>En caso de que la confirmación no haya sido correcta, contendrá el error.</td>
+</tr>
+<tr>
+<td>↳ @code</td>
+<td><em>String</em></td>
+<td>Sí</td>
+<td>Contiene el código de error de Hotetec.</td>
+</tr>
+<tr>
+<td>↳ type</td>
+<td><em>String</em></td>
+<td>Sí</td>
+<td>Indica si es un error (E) o un warning (W).</td>
+</tr>
+<tr>
+<td>↳ text</td>
+<td><em>String</em></td>
+<td>Sí</td>
+<td>Texto descriptivo del error</td>
+</tr>
+</tbody></table>
 
       </div>
       <div class="dark-box">
